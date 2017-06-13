@@ -136,13 +136,11 @@ class GoalItem extends React.Component {
                     {this.props.isComplete ? '' : (
                         <span>
                             <Cta 
-                                className="btn btn-primary"
                                 onClick = {this.editGoal}
                             >
-                                edit
+                                <i className="material-icons">edit</i>
                             </Cta>
                             <Cta 
-                                className="btn btn-primary"
                                 done
                                 onClick = {this.completeGoal}
                             >
@@ -153,7 +151,6 @@ class GoalItem extends React.Component {
                     )}
 
                     <Cta 
-                        className="btn btn-primary"
                         onClick = {this.delGoal}
                     >
                         <i className="material-icons">delete</i>

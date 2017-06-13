@@ -39,7 +39,7 @@ const Logo =  styled.h1`
 
 
 class App extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.getData();
     }
 
@@ -47,6 +47,7 @@ class App extends Component {
         firebaseApp.auth().signOut();
     }
     render() {
+        
         return (
             <div>
                 <Header>
@@ -70,14 +71,12 @@ class App extends Component {
                                     <div className="col-sm-6">
                                         <GoalList goals={
                                             this.props.goals.filter((goal) => goal.isComplete === false)
-                                        }  />
-                                        {/*<GoalList goals={this.props.goals}/>*/}
+                                        } />
                                     </div>
                                     <div className="col-sm-6">
                                         <CompleteGoals completeGoals={
                                             this.props.goals.filter((goal) => goal.isComplete === true)
                                         }  />
-                                        {/*<CompleteGoals completeGoals={this.props.completeGoals}/>*/}
                                     </div>
                                 </div>
                             </div>
@@ -92,10 +91,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
     // console.log(state)
     const  {goals, completeGoals} = state;
-    return {
-       goals,
-       completeGoals
-    }
+    return {goals,completeGoals}
 }
 
 export default connect(mapStateToProps, {getData})(App);
